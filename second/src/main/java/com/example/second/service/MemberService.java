@@ -1,11 +1,13 @@
 package com.example.second.service;
 
 import com.example.second.domain.Member;
+import com.example.second.repository.JdbcTemplateMemberRepository;
 import com.example.second.repository.MemberRepository;
 import com.example.second.repository.MemoryMemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.sql.DataSource;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,7 +17,7 @@ public class MemberService {
 
     @Autowired
     public MemberService(MemberRepository memberRepository) {
-        this.memberRepository = new MemoryMemberRepository();
+        this.memberRepository = memberRepository;
     }
     /**
      * 회원 가입
