@@ -68,6 +68,9 @@ class MemberServiceTest {
         memberService.join(member);
         memberService.join(member1);
         //then
+        System.out.println("Repository.findAll() = " + memberRepository.findAll());
+        System.out.println("member1 = " + member1);
+        System.out.println("member = " + member);
         assertThat(memberRepository.findAll().size()).isEqualTo(2);
     }
 }
